@@ -1,0 +1,18 @@
+15. Copiar el script del ejercicio 5 (“Hola <nombre de usuario>”) en bin/hola (bin es un directorio, crearlo, hola es el nombre del archivo). Agregar esta ruta al PATH.
+
+PATH=$(pwd)/bin:$PATH
+
+16. Crear el siguiente script como ej.16.sh:
+
+#!/bin/bash
+touch a
+ls a
+ls b
+Ejecutarlo, observar comportamiento. Redirigir la salida 1 a ej.16.out y la salida dos a ej.16.err.
+
+bash ej16.sh > ej16.out 2>ej16.err
+
+17. Ejecutar el script anterior pero esta vez descartar ambas salidas. (Chequear diapositiva 18)
+
+bash ej16.sh >/dev/null 2>&1
+
