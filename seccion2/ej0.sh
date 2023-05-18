@@ -1,17 +1,18 @@
 #!/bin/bash
-var='^[0-9]+$'
-if [[ $1 =~ $var ]]
+VALOR=$1
+VALIDADOR='^(-)?[0-9]+$'
+if [[ $1 =~ $VALIDADOR ]]
 then 
-	echo "Se ingreso el numero: $1"
+	echo "Se ingreso el numero: $VALOR"
 else
 	echo "Error: no se ingreso un numero valido"
 	exit 2
 fi
 
-if [[ $(($1%2)) -eq 0 ]]
+if [[ $(($VALOR%2)) -eq 0 ]]
 then
-	echo $1 es par
+	echo $VALOR es par
 else
-	echo $1 no es par
+	echo $VALOR no es par
 fi
 exit 0
