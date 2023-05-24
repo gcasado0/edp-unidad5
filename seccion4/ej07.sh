@@ -6,7 +6,8 @@ LADO=4
 
 for ((i=1; i<=$LADO; i++))
 do
-    for ((j=0; j<$i; j++))
+    
+    for ((j=0; j<$i; j++)) 
     do
         echo -n "* "
     done

@@ -5,3 +5,8 @@ Se puede utilizar para buscar palabras, contar líneas, etc.
 123
 456
 789
+123
+mar
+sol
+arena
+mar
