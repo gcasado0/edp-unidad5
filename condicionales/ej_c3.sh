@@ -3,8 +3,6 @@
 #C.3) Crear un script que reciba dos rutas a archivos de texto y que indique si estos archivos
 #tienen la misma cantidad de líneas. Validar que los archivos existen y se pueden leer.
 
-ARCHIVO1=$1
-ARCHIVO2=$2
 
 function validar {
     local ARCHIVO=$1
@@ -14,31 +12,41 @@ function validar {
         then
             return 0
         else
-            echo El archivo no se puede leer
+            echo El archivo: $ARCHIVO  no se puede leer
             return 1
         fi 
     else
-        echo El archivo no existe
+        echo El archivo: $ARCHIVO no existe
         return 2
     fi
 }
 
-validar $ARCHIVO1
-resultado1=$(echo $?)
-
-validar $ARCHIVO2
-resultado2=$(echo $?)
-
-if [[ $resultado1 -eq 0 && $resultado2 -eq 0 ]]
+if [ $# -eq 2 ]
 then
-    ARCH1_LONG=$(cat $ARCHIVO1 | wc -l )
-    ARCH2_LONG=$(cat $ARCHIVO2 | wc -l )
-    if [ $ARCH1_LONG -eq $ARCH2_LONG ]
+
+    ARCHIVO1=$1
+    ARCHIVO2=$2
+
+    validar $ARCHIVO1
+    resultado1=$(echo $?)
+
+    validar $ARCHIVO2
+    resultado2=$(echo $?)
+
+    if [[ $resultado1 -eq 0 && $resultado2 -eq 0 ]]
     then
-        echo "Los archivos son iguales"
-    else
-        echo "Los archivos son diferentes"
+        ARCH1_LONG=$(cat $ARCHIVO1 | wc -l )
+        ARCH2_LONG=$(cat $ARCHIVO2 | wc -l )
+        if [ $ARCH1_LONG -eq $ARCH2_LONG ]
+        then
+            echo "Los archivos tienen la misma cantidad de lineas: $ARCH1_LONG"
+        else
+            echo "Los archivos difieren en $(($ARCH1_LONG-$ARCH2_LONG)) lineas"
+        fi
     fi
+else
+    echo "Ingresar los 2 archivos a comparar"
+    exit 1
 fi
 
 
