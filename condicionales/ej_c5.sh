@@ -14,7 +14,9 @@ case $MES in
     january)
         DIAS=31;;
     february)
-        DIAS=28;; #Aca prodia usar la funcion del ejercicio c4 que calcula si es bisiesto o no
+        DIAS=28;; 
+    march)
+        DIAS=30;; 
     *)
         DIAS=0
 esac
