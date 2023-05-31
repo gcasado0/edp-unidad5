@@ -11,8 +11,9 @@ then
     #descomponer en 4 partes y verificar que sean menor a 255
     for ((i=1; i<=4; i++))
     do
-        STR="BEGIN { FS = \".\"} { print \$$i }"
-        N=$(echo $1 | awk "$STR")
+        #STR="BEGIN { FS = \".\"} { print \$$i }"
+        #N=$(echo $1 | awk "$STR")
+        N=$(echo $1 | cut -d. -f$i)
         if [ ! $N -le 255 ]
         then
             VALIDA=0
