@@ -6,7 +6,7 @@ https://demo.hedgedoc.org/s/lUsOLW1TW#Super-Mega-Gu%C3%ADa-de-Bash
 Short notation	Long notation	Result
 set -f	set -o noglob	Disable file name generation using metacharacters (globbing).
 set -v	set -o verbose	Prints shell input lines as they are read.
-set -x	set -o xtrace	Print command traces before executing command.ç
+set -x	set -o xtrace	Print command traces before executing command.
 
 set -x			# activate debugging from here
 w
